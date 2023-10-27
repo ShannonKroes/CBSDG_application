@@ -1,0 +1,1 @@
+This folder contains the original blood transfusion data. These cannot be share publicly in order to preserve privacy of the underlying individuals
