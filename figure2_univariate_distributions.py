@@ -9,9 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+def get_cols(dat):
+    dat.columns = ["Original data", "Synthetic data"]
+    return dat
+
 with open("data/data_original", "rb") as input_file:
     data_original = cPickle.load(input_file)
-# data_original.Sex= pd.factorize(data_original.Sex)[0]
 n, d = data_original.shape
 
 with open("results/synth", "rb") as input_file:
@@ -26,12 +29,6 @@ synth_df.Sex.iloc[which(synth_df.Sex == 1)] = "M"
 
 synth_total = synth_df.to_numpy()
 data_an = synth_total
-
-
-def get_cols(dat):
-    dat.columns = ["Original data", "Synthetic data"]
-    return dat
-
 
 datsex = get_cols(
     pd.DataFrame(np.vstack([np.repeat(data_or.T[0], 3), synth_total.T[0]]).T)

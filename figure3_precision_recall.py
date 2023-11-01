@@ -145,8 +145,7 @@ sns.kdeplot(np.array(rec_synth_persex[1]), bw=0.4, label="Synthetic data: males"
 sns.kdeplot(np.array(rec_synth_persex[0]), bw=0.4, label="Synthetic data: females")
 plt.axvline(rec_orig_M, c="black", label="Original data")
 plt.axvline(rec_orig_F, c="black")
-
-plt.legend(loc="upper center")
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., ncol=3)
 plt.savefig("figures/Recall_50_reps_per_sex.png", dpi=600)
 
 
@@ -157,6 +156,5 @@ sns.kdeplot(np.array(prec_synth_persex[1]), bw=0.4, label="Synthetic data: males
 sns.kdeplot(np.array(prec_synth_persex[0]), bw=0.4, label="Synthetic data: females")
 plt.axvline(prec_orig_M, c="black", label="Original data")
 plt.axvline(prec_orig_F, c="black")
-
-plt.legend(loc="upper center")
+plt.legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0., ncol=3)
 plt.savefig("figures/Precision_50_reps_per_sex.png", dpi=600)
