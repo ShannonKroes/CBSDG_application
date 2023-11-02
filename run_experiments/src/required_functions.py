@@ -25,6 +25,14 @@ which = lambda lst: list(np.where(lst)[0])
 
 
 def extract_levels(data):
+    """
+    Extract for every column how many levels (categories) the variable has.
+    :param data: DESCRIPTION
+    :type data: TYPE
+    :return: DESCRIPTION
+    :rtype: TYPE
+
+    """
     levels = np.zeros(data.shape[1])
 
     for i in range(data.shape[1]):

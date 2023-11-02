@@ -2,7 +2,7 @@
 """
 Plot the univariate distributions for Figure 2.
 """
-import _pickle as cPickle
+import pickle
 
 which = lambda lst: list(np.where(lst)[0])
 import matplotlib.pyplot as plt
@@ -14,11 +14,11 @@ def get_cols(dat):
     return dat
 
 with open("data/data_original", "rb") as input_file:
-    data_original = cPickle.load(input_file)
+    data_original = pickle.load(input_file)
 n, d = data_original.shape
 
-with open("results/synth", "rb") as input_file:
-    synth_total = cPickle.load(input_file)
+with open("run_experiments/results/synth", "rb") as input_file:
+    synth_total = pickle.load(input_file)
 
 synth_df = pd.DataFrame(synth_total)
 synth_df.columns = data_original.columns[2:11]
@@ -159,6 +159,7 @@ axes[2, 0].set_ylabel("Proportion")
 axes[2, 2].set_ylabel("")
 axes[2, 1].set_ylabel("")
 
+
 lines, labels = fig.axes[0].get_legend_handles_labels()
-fig.legend(lines, labels, loc="lower center", prop={"size": 6}, ncol=2)
-plt.savefig("figures/univariate_distributions.png", dpi=600)
+fig.legend(lines, labels, loc = 'lower center',  prop={'size': 16}, ncol=2, fontsize=20)
+plt.savefig('figures/univariate_distributions.png', dpi=800)

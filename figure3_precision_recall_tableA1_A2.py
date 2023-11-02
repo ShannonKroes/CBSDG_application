@@ -1,24 +1,27 @@
 # -*- coding: utf-8 -*-
 """
 Analyze the variation of precision and recall for different synthetic data sets
-as a measure of utility.
+as a measure of utility. In this file we generate Figure 3 and extract the
+classification scores for the tables in the appendix (A1 and A2).
 """
 import pickle
 
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from required_functions import *
+from required_functions import prep_data2021
 from sklearn.metrics import precision_score, recall_score
 
 with open("data/data_original", "rb") as input_file:
     data_original = pickle.load(input_file)
 
-with open("results/predicted_OR_F_2021", "rb") as input_file:
+# Extract the predictions for the original data for females and males.
+with open("run_experiments/results/predicted_OR_F_2021", "rb") as input_file:
     predicted_OR_F_2021 = pickle.load(input_file)
-with open("results/predicted_OR_M_2021", "rb") as input_file:
+with open("run_experiments/results/predicted_OR_M_2021", "rb") as input_file:
     predicted_OR_M_2021 = pickle.load(input_file)
-with open("results/synth_predictions_2021", "rb") as input_file:
+# Extract the total results from the synthetic data experiments.
+with open("run_experiments/results/synth_predictions_2021", "rb") as input_file:
     res_total = pickle.load(input_file)
 
 # We select the first two sample sizes.

@@ -18,7 +18,7 @@ with open("data/data_original", "rb") as input_file:
     data_original = pickle.load(input_file)
 n, d = data_original.shape
 
-with open("results/synth", "rb") as input_file:
+with open("run_experiments/results/synth", "rb") as input_file:
     synth_total = pickle.load(input_file)
 
 n, d = data_original.shape

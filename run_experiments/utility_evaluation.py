@@ -130,6 +130,9 @@ for n_i, n_ in enumerate(ns):
             RandomState(2206 + rep),
         )
         synth_df_current = pre_process_synth(synth_current)
+        if rep == 0:
+            save_object(synth_current, "results/synth")
+            save_object(mspn, "results/mspn")
 
         for i in range(1, 2):
             # Train a classifier with the synthetic data

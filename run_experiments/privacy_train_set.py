@@ -3,8 +3,7 @@
 In this file we evaluate privacy for the test people, who were 
 used to train the model.
 """
-import pickle as pickle
-
+import pickle
 import numpy as np
 import pandas as pd
 from src.required_functions import PoAC_and_proximity_mspn, save_object
@@ -31,21 +30,21 @@ with open("results/mspn", "rb") as input_file:
 # In total there are 250729 records, we generate the data in batches so that we save intermittent results.
 for i in range(250):
     print("working on batch " + str(i))
-    privacy_an = PoAC_and_proximity_mspn(
+    privacy_synth = PoAC_and_proximity_mspn(
         data=data_np,
         inds=np.array([int(i * 1000), int((i + 1) * 1000)]),
         mspn=mspn,
         ordered=ordered,
         no_tests=1000,
     )
-    save_object(privacy_an, "results/privacy_batch_train_" + str(i))
+    save_object(privacy_synth, "results/privacy_batch_train_" + str(i))
 
 print("working on last batch")
-privacy_an = PoAC_and_proximity_mspn(
+privacy_synth = PoAC_and_proximity_mspn(
     data=data_np,
     inds=np.array([int(250000), int(250729)]),
     mspn=mspn,
     ordered=ordered,
     no_tests=729,
 )
-save_object(privacy_an, "results/privacy_batch_train_251")
+save_object(privacy_synth, "results/privacy_batch_train_251")
